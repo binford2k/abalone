@@ -11,6 +11,7 @@ class abalone::config {
   $ssh_user    = $abalone::ssh_user
   $command     = $abalone::command
   $params      = $abalone::params
+  $uuid        = $abalone::uuid
 
   File {
     owner  => 'root',

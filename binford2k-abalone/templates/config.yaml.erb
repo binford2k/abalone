@@ -21,6 +21,9 @@
 <% if @bannerfile -%>
 :bannerfile: <%= @bannerfile %>
 <% end %>
+<% if @uuid -%>
+:uuid: true
+<% end -%>
 <% if @params -%>
 :params:
 <% if @params.class == Hash -%>

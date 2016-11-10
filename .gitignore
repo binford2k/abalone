@@ -3,7 +3,7 @@
 /.config
 /coverage/
 /InstalledFiles
-/pkg/
+/binford2k-abalone/pkg/
 /spec/reports/
 /spec/examples.txt
 /test/tmp/

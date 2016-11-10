@@ -5,6 +5,7 @@ require 'sinatra-websocket'
 
 require 'pty'
 require 'io/console'
+require 'securerandom'
 
 class Abalone < Sinatra::Base
   set :logging, true
@@ -12,6 +13,8 @@ class Abalone < Sinatra::Base
   set :protection, :except => :frame_options
   set :public_folder, "#{settings.root}/../public"
   set :views, "#{settings.root}/../views"
+
+  enable :sessions
 
   before {
     env["rack.logger"] = settings.logger if settings.logger
@@ -25,6 +28,11 @@ class Abalone < Sinatra::Base
   }
 
   get '/?:user?' do
+
+    if settings.uuid
+      session[:uuid] ||= SecureRandom.uuid
+    end
+
     if !request.websocket?
       #redirect '/index.html'
       @requestUsername = (settings.respond_to?(:ssh) and ! settings.ssh.include?(:user)) rescue false
@@ -205,6 +213,8 @@ class Abalone < Sinatra::Base
             command << value
           end
         end
+
+        command << "--uuid" << session[:uuid] if settings.uuid
 
         return command
       end

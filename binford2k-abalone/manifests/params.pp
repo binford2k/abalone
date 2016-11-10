@@ -10,4 +10,5 @@ class abalone::params {
   $ssh_user   = undef
   $command    = undef
   $params     = undef
+  $uuid       = false
 }

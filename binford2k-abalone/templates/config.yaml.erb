@@ -36,11 +36,11 @@
 <% if defined? @params -%>
 :params:
 <% if @params.class == Hash -%>
-  <% @params.keys.sort.each do |key, value| -%>
+  <% @params.sort_by { |key, value|  key }.each do |key,value| -%>
   <%= key %>:
   <% if value.class == Hash -%>
-    <% if value.has_key? :map %>:map: <%= value[:map] %><% end -%>
-    <% if value.has_key? :values %>:map: <%= value[:values].inspect %><% end -%>
+    <% if value.has_key? ':map' %>:map: <%= value[':map'] %><% end -%>
+    <% if value.has_key? ':values' %>:map: <%= value[':values'].inspect %><% end -%>
   <% end -%>
   <% end -%>
 <% else -%>

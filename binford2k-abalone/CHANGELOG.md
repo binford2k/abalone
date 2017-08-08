@@ -1,3 +1,7 @@
+# v0.0.8
+* Corrected logic for config template, allowing false values to be managed.
+* Better management of settings in the params hash.
+
 # v0.0.7
 * Adding params for all supported features
   * autoconnect

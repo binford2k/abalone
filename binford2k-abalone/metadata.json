@@ -1,6 +1,6 @@
 {
   "name": "binford2k-abalone",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "binford2k",
   "summary": "Sets up the Abalone web shell. Only tested on CentOS 7.",
   "license": "Apache-2.0",

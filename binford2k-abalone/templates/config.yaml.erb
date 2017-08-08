@@ -2,38 +2,38 @@
 :port: <%= @port %>
 :bind: <%= @bind %>
 :logfile: <%= @logfile %>
-<% if @ssh_host -%>
+<% if defined? @ssh_host -%>
 :ssh:
   :host: <%= @ssh_host %>
-<% if @ssh_user -%>
+<% if defined? @ssh_user -%>
   :user: <%= @ssh_user %>
 <% end -%>
-<% if @ssh_cert -%>
+<% if defined? @ssh_cert -%>
   :cert: <%= @ssh_cert %>
 <% end -%>
-<% if @ssh_port -%>
+<% if defined? @ssh_port -%>
   :port:
 <% end -%>
 <% end -%>
-<% if @autoconnect -%>
+<% if defined? @autoconnect -%>
 :autoconnect: <%= @autoconnect %>
 <% end -%>
-<% if @ttl -%>
+<% if defined? @ttl -%>
 :ttl: <%= @ttl %>
 <% end -%>
-<% if @timeout -%>
+<% if defined? @timeout -%>
 :timeout: <%= @timeout %>
 <% end -%>
-<% if @bannerfile -%>
+<% if defined? @bannerfile -%>
 :bannerfile: <%= @bannerfile %>
 <% end -%>
-<% if @welcome -%>
+<% if defined? @welcome -%>
 :welcome: <%= @welcome %>
 <% end -%>
-<% if @command -%>
+<% if defined? @command -%>
 :command: <%= @command %>
 <% end -%>
-<% if @params -%>
+<% if defined? @params -%>
 :params:
 <% if @params.class == Hash -%>
   <% @params.keys.sort.each do |key, value| -%>

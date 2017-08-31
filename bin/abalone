@@ -6,6 +6,15 @@ require 'yaml'
 require 'abalone'
 require 'abalone/terminal'
 
+if Gem.win_platform?
+  FileUtils.mkdir_p 'C:\ProgramData\abalone' rescue nil
+  configfile = 'C:\ProgramData\abalone\config.yaml'
+  defaultlog = 'C:\ProgramData\abalone\abalone.log'
+else
+  configfile = '/etc/abalone/config.yaml'
+  defaultlog = '/var/log/abalone'
+end
+
 defaults = {
   :port        => 9000,
   :bind        => '0.0.0.0',
@@ -13,7 +22,6 @@ defaults = {
   :autoconnect => true,
 }
 loglevel   = Logger::WARN
-configfile = '/etc/abalone/config.yaml'
 options    = {}
 optparse = OptionParser.new { |opts|
     opts.banner = "Usage : abalone [-p <port>] [-l [logfile]] [-d]
@@ -21,7 +29,7 @@ optparse = OptionParser.new { |opts|
 
 "
 
-    opts.on("-c CONFIGFILE", "--config CONFIGFILE", "Load configuration from a file. (/etc/abalone/config.yaml)") do
+    opts.on("-c CONFIGFILE", "--config CONFIGFILE", "Load configuration from a file. (#{configfile})") do
         configfile = arg
     end
 
@@ -29,8 +37,8 @@ optparse = OptionParser.new { |opts|
         loglevel = Logger::DEBUG
     end
 
-    opts.on("-l [LOGFILE]", "--logfile [LOGFILE]", "Path to logfile. Defaults to no logging, or /var/log/abalone if no filename is passed.") do |arg|
-        options[:logfile] = arg || defaults[:logfile] || '/var/log/abalone'
+    opts.on("-l [LOGFILE]", "--logfile [LOGFILE]", "Path to logfile. Defaults to no logging, or #{defaultlog} if no filename is passed.") do |arg|
+        options[:logfile] = arg || defaultlog
     end
 
     opts.on("-p PORT", "--port PORT", "Port to listen on. Defaults to 9000.") do |arg|

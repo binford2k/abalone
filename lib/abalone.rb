@@ -1,6 +1,7 @@
 require 'json'
 require 'logger'
 require 'sinatra/base'
+require 'em/pure_ruby' if Gem.win_platform?
 require 'sinatra-websocket'
 
 class Abalone < Sinatra::Base

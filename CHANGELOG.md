@@ -1,3 +1,8 @@
+# v0.4.2
+
+* Handle `systemd` notifications ourselves instead of relying on `systemd-notify`.
+* This mitigates an upstream bug which caused Abalone to restart repeatedly.
+
 # v0.4.1
 
 * Corrected param handling when defined as an array in the `config.yaml`.

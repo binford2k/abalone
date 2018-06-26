@@ -3,6 +3,8 @@ Description=Abalone Web Shell
 After=network.target
 
 [Service]
+LimitNOFILE=500000
+LimitNPROC=500000
 ExecStart=/usr/local/bin/abalone
 <% if @watchdog -%>
 WatchdogSec=30s

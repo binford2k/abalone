@@ -1,3 +1,7 @@
+# v0.0.9
+* Systemd doesn't enforce system-wide max file/proc handles. Set it in the .service file
+* See https://fredrikaverpil.github.io/2016/04/27/systemd-and-resource-limits/
+
 # v0.0.8
 * Corrected logic for config template, allowing false values to be managed.
 * Better management of settings in the params hash.

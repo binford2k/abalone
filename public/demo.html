@@ -1,47 +1,48 @@
 <html
-	<head>
-		<title>Abalone Web Shell Demo</title>
+  <head>
+    <title>Abalone Web Shell Demo</title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="http://localhost:9000/css/launcher.css">
+    <link rel="stylesheet" href="/css/launcher.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="http://localhost:9000/js/launcher.js"></script>
+    <script src="/js/launcher.js"></script>
     <script>
       hljs.initHighlightingOnLoad();
 
       $(document).ready(function() {
+	var abalone = window.location.href.replace('demo.html','');
 
         $('pre.popup').AbaloneLauncher({
            label: "Try out a popup!",
            title: "Isn't this neat?",
-          server: "http://localhost:9000",
+          server: abalone,
         });
 
         $('pre.inline').AbaloneLauncher({
              label: "Try it out inline!",
             target: "inline",
-            server: "http://localhost:9000",
+            server: abalone,
         });
 
         $('pre.targeted').AbaloneLauncher({
              label: "Try it out!",
             target: "#abalone-shell",
           location: "se",
-            server: "http://localhost:9000",
+            server: abalone,
         });
 
         $('pre.tab').AbaloneLauncher({
              label: "Try it in a new tab/window!",
             target: "tab",
           location: "se",
-            server: "http://localhost:9000",
+            server: abalone,
         });
 
         $('a#launcher').AbaloneLauncher({
-          server: "http://localhost:9000",
+          server: abalone,
         });
 
       });

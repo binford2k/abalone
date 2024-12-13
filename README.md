@@ -1,5 +1,6 @@
 # abalone
-A simple Sinatra & hterm based web terminal.
+A simple Sinatra & hterm based web terminal. You can bind it to any command that behaves
+like a shell and expose that to a browser.
 
 #### Table of Contents
 
